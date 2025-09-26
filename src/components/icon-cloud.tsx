@@ -3,7 +3,6 @@ import { IconCloud } from "./ui/icon-cloud"
 const slugs = [
   "typescript",
   "javascript",
-  "java",
   "react",
   "html5",
   "css3",

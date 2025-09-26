@@ -1,7 +1,7 @@
+import { WavyBackground } from "@/components/animate-ui/components/backgrounds/wavy-background";
 import { HackathonCard } from "@/components/hackathon-card";
 import { IconCloudComponent } from "@/components/icon-cloud";
 import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -19,42 +19,43 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
         <div className="mx-auto w-full space-y-8">
-          <div className="gap-2 flex flex-col-reverse sm:flex-row items-center justify-between">
-            <div className="flex-col flex flex-1 gap-2 sm:gap-4">
+          <div className="gap-2 flex flex-col-reverse items-center">
+            <WavyBackground className="flex-col-reverse items-center flex sm:gap-6 gap-2 z-10">
+              <div className="w-full flex flex-col items-center gap-2 justify-center">
+                <BlurFade delay={BLUR_FADE_DELAY}>
+                  <TypingAnimation
+                    startOnView={true}
+                    duration={80}
+                    className="text-2xl sm:text-5xl xl:text-6xl/none"
+                  >
+                    E aí, meu nome é Giordano
+                  </TypingAnimation>
+                </BlurFade>
+                <BlurFade delay={BLUR_FADE_DELAY}>
+                  <h2 className="text-xl md:text-3xl -ml-2">
+                    <FlipWords
+                      words={[
+                        "Desenvolvedor FullStack",
+                        "Ux/Ui Designer",
+                        "Designer Gráfico",
+                      ]}
+                      duration={700}
+                    />
+                    <br />
+                  </h2>
+                </BlurFade>
+              </div>
               <BlurFade delay={BLUR_FADE_DELAY}>
-                <TypingAnimation
-                  startOnView={true}
-                  duration={80}
-                  className="text-2xl sm:text-5xl xl:text-6xl/none"
-                >
-                  E aí, meu nome é Giordano
-                </TypingAnimation>
-              </BlurFade>
-              <BlurFade delay={BLUR_FADE_DELAY}>
-                <h2 className="text-xl md:text-3xl -ml-2">
-                  <FlipWords
-                    words={[
-                      "Desenvolvedor FullStack",
-                      "Designer Gráfico",
-                      "UX/UI Design",
-                    ]}
-                    duration={700}
-                    
+                <Avatar className="size-40 md:size-80 border">
+                  <AvatarImage
+                    alt={"Giordano Borsato"}
+                    src={"/me.png"}
+                    className="object-cover"
                   />
-                  <br />
-                </h2>
+                  <AvatarFallback>{"GB"}</AvatarFallback>
+                </Avatar>
               </BlurFade>
-            </div>
-            <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-40 md:size-80 border">
-                <AvatarImage
-                  alt={"Giordano Borsato"}
-                  src={"/me.png"}
-                  className="object-cover"
-                />
-                <AvatarFallback>{"GB"}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
+            </WavyBackground>
           </div>
         </div>
       </section>
@@ -76,7 +77,7 @@ export default function Page() {
       <section id="work">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
+            <h2 className="text-xl font-bold">Experiência</h2>
           </BlurFade>
           {DATA.work.map((work, id) => (
             <BlurFade
